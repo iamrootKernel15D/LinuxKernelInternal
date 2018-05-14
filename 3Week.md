@@ -33,7 +33,7 @@ void __init find_low_pfn_range(void)
 }
 ```
 
-물리메모리가 작을때는 물리 메모리가 ㅈstatic void \__init lowmem_pfn_init(void) 함수를 보면 된다.
+물리메모리가 작을때는 물리 메모리가 static void \__init lowmem_pfn_init(void) 함수를 보면 된다.
 
 ```c
 /*
