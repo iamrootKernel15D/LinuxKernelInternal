@@ -145,6 +145,45 @@ extern unsigned long __FIXADDR_TOP;
              PAGE_SIZE)
 #endif
 ```
+
+추가...64비트에서는 
+
+```c
+/*
+ * Determine if we were loaded by an EFI loader.  If so, then we have also been
+ * passed the efi memmap, systab, etc., so we should use these data structures
+ * for initialization.  Note, the efi init code path is determined by the
+ * global efi_enabled. This allows the same kernel image to be used on existing
+ * systems (with a traditional BIOS) as well as on EFI systems.
+ */
+/*
+ * setup_arch - architecture-specific boot-time initializations
+ *
+ * Note: On x86_64, fixmaps are ready for use even before this is called.
+ */
+
+void __init setup_arch(char **cmdline_p)
+{
+...
+#ifdef CONFIG_X86_32
+    /* max_low_pfn get updated here */
+    find_low_pfn_range();
+#else
+    check_x2apic();
+
+    /* How many end-of-memory variables you have, grandma! */
+    /* need this before calling reserve_initrd */
+    if (max_pfn > (1UL<<(32 - PAGE_SHIFT)))
+        max_low_pfn = e820__end_of_low_ram_pfn();
+    else
+        max_low_pfn = max_pfn;
+
+    high_memory = (void *)__va(max_pfn * PAGE_SIZE - 1) + 1;
+#endif
+...
+}
+
+```
  
 # Slob은 정확히 어디서 사용하는가?
  
