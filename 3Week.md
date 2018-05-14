@@ -83,9 +83,10 @@ static void __init highmem_pfn_init(void)
 
 ```
 
-다시 말해서 max_low_pfn 값은 물리 메모리크기에 따라 변할수 있는 값이며 이 값은 ZONE_NORMAL 의 최대 크기가 된다.
+___다시 말해서 max_low_pfn 값은 물리 메모리크기에 따라 변할수 있는 값이며 이 값은 ZONE_NORMAL 의 최대 크기가 된다.___
 
-추가로 더 적을것들 
+추가로 더 확인하면 좋은것들은 아래와 같다.
+
 arch/x86/include/asm/setup.h
 ```c
 #define MAXMEM_PFN	PFN_DOWN(MAXMEM)
