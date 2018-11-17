@@ -1,7 +1,7 @@
 Table of Contents
 -----------------
 
--   [1 Intro](#sec-1)
+-   [1 Intro](./test.md#sec-1)
 -   [2 x86\_64 boot sequence](#sec-2)
 -   [3 Makefile](#sec-3)
 -   [4 arch/x86/Makefile](#sec-4)
