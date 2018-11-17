@@ -5,7 +5,7 @@ iamroot의 linux 3.9.11 (x86_64) 자료 옮겨옴
 Table of Contents
 -----------------
 
--   [1 Intro](./test.md#sec-1)
+-   [1 Intro](#sec-1)
 -   [2 x86\_64 boot sequence](#sec-2)
 -   [3 Makefile](#sec-3)
 -   [4 arch/x86/Makefile](#sec-4)
@@ -1000,7 +1000,7 @@ Table of Contents
     -   [206.2 u32\_swap()](#sec-206-2)
     -   [206.3 generic\_swap()](#sec-206-3)
 
-1 Intro
+1 Intro{#sec-1}
 -------
 
 x86 PC의 전원을 켜면 CPU가 0xffff0 주소로 점프하고 BIOS가 POST(Power-on self-test)를 완료하고 부팅할 디바이스의 MBR(Master boot record)을 메모리의 0x7C00번지로 불러들여 실행한다. 이렇게 부트로더로 제어가 넘어가면 부트로더는 OS 선택 등의 인터페이스를 제공하고 간단한 초기화와 OS의 커널을 메모리 상으로 읽어들여 그 부분으로 제어권을 넘긴다.
