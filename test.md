@@ -1,3 +1,7 @@
+http://www.iamroot.org/ldocs/linux.html
+iamroot의 linux 3.9.11 (x86_64) 자료 옮겨옴
+
+
 Table of Contents
 -----------------
 
